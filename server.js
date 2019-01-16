@@ -24,13 +24,19 @@ mongoose.connect(config.url)
 });
  
 // Create a Server
-var server = app.listen(8080, function () {
+
+var port = process.env.PORT || 8000;
+app.listen(port, function() {
+    console.log("App is running on port " + port);
+});
+
+// var server = app.listen(8080, function () {
  
-  var host = server.address().address
-  var port = server.address().port
+//   var host = server.address().address
+//   var port = server.address().port
  
-  console.log("App listening at http://%s:%s", host, port)
-})
+//   console.log("App listening at http://%s:%s", host, port)
+// })
 
 
 function initial(){
