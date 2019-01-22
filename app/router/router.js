@@ -12,10 +12,12 @@ module.exports = function(app) {
 	app.get('/api/test/user', [authJwt.verifyToken], controller.userContent);
 
 	app.post('/api/products', controller.product_create);
+
+	app.post('/api/products/:id', controller.product_create);
 	
 	app.get('/api/products', controller.userProducts);
 
-	app.get('/api/products/:id', controller.product_details);
+	app.get('/api/products/:id', controller.product_delete);
 
 	app.get('/api/test/pm', [authJwt.verifyToken, authJwt.isPmOrAdmin], controller.managementBoard);
 	

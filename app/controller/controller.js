@@ -139,6 +139,13 @@ exports.product_create = function (req, res) {
     })
 };
 
+exports.product_delete = function(res, req) {
+	Product.findByIdAndRemove(req.params.id, function (err){
+		if(err) return next(err);
+		res.send('Delete sukses cuy');
+	})
+}
+
 exports.user_firstcreate = function (req, res) {
 	console.log('lagi ngepost cok, sabar')
 	var userfistpost = new UserFirst(
