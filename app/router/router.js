@@ -17,7 +17,7 @@ module.exports = function(app) {
 	
 	app.get('/api/products', controller.userProducts);
 
-	app.get('/api/products/:id', controller.product_delete);
+	app.delete('/api/products/:id', controller.product_delete);
 
 	app.get('/api/test/pm', [authJwt.verifyToken, authJwt.isPmOrAdmin], controller.managementBoard);
 	
