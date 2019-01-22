@@ -3,6 +3,7 @@ const config = require('../config/config.js');
 const Role = require('../model/role.model.js');
 const User = require('../model/user.model.js');
 const Product = require('../model/userternak.model.js');
+const UserFirst = require('../model/userfirst.js')
 
 var jwt = require('jsonwebtoken');
 var bcrypt = require('bcryptjs');
@@ -100,6 +101,13 @@ exports.userProducts = (req, res) => {
     })
 }
 
+exports.userLiat = (req, res) => {
+	UserFirst.find(req.params, function(err, userliats){
+		if(err) return next(err);
+		res.send(userliats)
+	})
+};
+
 exports.product_details = function (req, res) {
     Product.findById(req.params.id, function (err, product) {
         if (err) return next(err);
@@ -128,6 +136,29 @@ exports.product_create = function (req, res) {
             return next(err);
         }
         res.send('Product Created successfully')
+    })
+};
+
+exports.user_firstcreate = function (req, res) {
+	console.log('lagi ngepost cok, sabar')
+	var userfistpost = new UserFirst(
+		{
+			namadepan: req.body.namadepan,
+			namabelakang: req.body.namabelakang
+		}
+	);
+	userfistpost.save(function (err){
+		if (err) {
+			return next(err);
+		}
+		res.send('suddaaaaah')
+	})
+};
+
+exports.seorang_user = function (req, res) {
+    UserFirst.findById(req.params.id, function (err, seoranguser) {
+        if (err) return next(err);
+        res.send(seoranguser);
     })
 };
 
