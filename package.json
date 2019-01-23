@@ -14,7 +14,7 @@
     "MongoDB",
     "Authentication"
   ],
-  "author": "grokonez.com",
+  "author": "didot",
   "license": "ISC",
   "dependencies": {
     "bcryptjs": "^2.4.3",
