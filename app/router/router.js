@@ -13,7 +13,7 @@ module.exports = function(app) {
 
 	app.post('/api/products', controller.product_create);
 
-	app.post('/api/products/:id', controller.product_create);
+	app.get('/api/products/:id', controller.product_details);
 	
 	app.get('/api/products', controller.userProducts);
 
@@ -27,7 +27,7 @@ module.exports = function(app) {
 
 	app.post('/api/userfirst', controller.user_firstcreate);
 
-	app.get('/api/userfirst', [authJwt.verifyToken], controller.userLiat);
+	app.get('/api/userfirst', controller.userLiat);
 
 	app.get('/api/userfirst/:id', controller.seorang_user);
 }

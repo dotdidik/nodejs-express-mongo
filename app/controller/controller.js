@@ -96,8 +96,11 @@ exports.userContent = (req, res) => {
 
 exports.userProducts = (req, res) => {
 	Product.find(req.params, function(err, products){
-        if(err) return next(err);
-        res.send(products)
+        if (err) return res.send({status: 'FAILED'
+						})
+        res.send(
+			{   status: 'OK',
+				products});
     })
 }
 
@@ -109,9 +112,12 @@ exports.userLiat = (req, res) => {
 };
 
 exports.product_details = function (req, res) {
-    Product.findById(req.params.id, function (err, product) {
-        if (err) return next(err);
-        res.send(product);
+    Product.findById(req.params.id, function (err, product_details) {
+		if (err) return res.send({status: 'FAILED'
+						})
+        res.send(
+			{   status: 'OK',
+				product_details});
     })
 };
 

@@ -1,11 +1,12 @@
 const mongoose = require('mongoose'), Schema = mongoose.Schema;
- 
+const User = require('../model/user.model')
 const ProductSchema = mongoose.Schema({
     nama: {type: String, required: true, max: 100},
     alamat: {type: String, required: true, max: 225},
     keterangan: {type: String, required: true, max: 400},
     gambar: {type: String, required: true, max: 425},
     harga: {type: Number, required: true},
+    user: {type: Schema.Types.ObjectId, ref: User}
 });
 
 module.exports = mongoose.model('Product', ProductSchema);
