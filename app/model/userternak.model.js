@@ -5,8 +5,7 @@ const ProductSchema = mongoose.Schema({
     alamat: {type: String, required: true, max: 225},
     keterangan: {type: String, required: true, max: 400},
     gambar: {type: String, required: true, max: 425},
-    harga: {type: Number, required: true},
-    user: {type: Schema.Types.ObjectId, ref: User}
+    harga: {type: Number, required: true}
 });
 
 module.exports = mongoose.model('Product', ProductSchema);
